@@ -1,4 +1,4 @@
-# Mastodon Terraform - Fastly Service for Mastodon Applications
+# Mastodon Terraform - Fastly Service for Joinmastodon
 
 Terraform module for creating all necessary services in Fastly for hosting the [joinmastodon.org](joinmastodon.org) launch page.
 
