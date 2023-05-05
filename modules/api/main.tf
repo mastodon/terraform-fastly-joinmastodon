@@ -16,7 +16,7 @@ resource "fastly_service_vcl" "api_service" {
 
   # Domain
   domain {
-    name    = var.hostname
+    name = var.hostname
   }
 
   # Backend
@@ -79,10 +79,10 @@ resource "fastly_service_vcl" "api_service" {
 
   # Allow CORS origin header
   header {
-    action        = "set"
-    destination   = "http.Access-Control-Allow-Origin"
-    name          = "Allow all CORS origins"
-    type          = "cache"
+    action      = "set"
+    destination = "http.Access-Control-Allow-Origin"
+    name        = "Allow all CORS origins"
+    type        = "cache"
 
     ignore_if_set = false
     priority      = 10

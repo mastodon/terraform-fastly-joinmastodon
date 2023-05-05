@@ -22,7 +22,7 @@ resource "fastly_service_vcl" "app_service" {
 
   # Need both default and www domains
   domain {
-    name    = var.hostname
+    name = var.hostname
   }
   domain {
     name    = "www.${var.hostname}"

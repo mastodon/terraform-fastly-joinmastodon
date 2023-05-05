@@ -16,7 +16,7 @@ resource "fastly_service_vcl" "proxy_service" {
 
   # Domain
   domain {
-    name    = var.hostname
+    name = var.hostname
   }
 
   # Backend
