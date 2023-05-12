@@ -20,6 +20,8 @@ module "app" {
   healthcheck_path              = var.healthcheck_path
   healthcheck_method            = var.healthcheck_method
   healthcheck_expected_response = var.healthcheck_expected_response
+  force_tls_hsts                = var.force_tls_hsts
+  hsts_duration                 = var.hsts_duration
 }
 
 module "api" {
@@ -37,6 +39,8 @@ module "api" {
   healthcheck_path              = var.api_healthcheck_path
   healthcheck_method            = var.api_healthcheck_method
   healthcheck_expected_response = var.api_healthcheck_expected_response
+  force_tls_hsts                = var.api_force_tls_hsts
+  hsts_duration                 = var.api_hsts_duration
 }
 
 module "proxy" {
@@ -53,4 +57,6 @@ module "proxy" {
   healthcheck_path              = var.proxy_healthcheck_path
   healthcheck_method            = var.proxy_healthcheck_method
   healthcheck_expected_response = var.proxy_healthcheck_expected_response
+  force_tls_hsts                = var.proxy_force_tls_hsts
+  hsts_duration                 = var.proxy_hsts_duration
 }

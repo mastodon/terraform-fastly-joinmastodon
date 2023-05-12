@@ -1,7 +1,6 @@
 variable "name" {
   description = "Name of the fastly service (defaults to hostname)."
   type        = string
-  default     = ""
 }
 
 variable "hostname" {
@@ -12,13 +11,11 @@ variable "hostname" {
 variable "backend_name" {
   description = "Optional name for the backend."
   type        = string
-  default     = ""
 }
 
 variable "ssl_hostname" {
   description = "Hostname to use for SSL verification (if different from 'hostname')."
   type        = string
-  default     = ""
 }
 
 variable "backend_address" {
@@ -40,34 +37,34 @@ variable "shield_region" {
 variable "healthcheck_host" {
   description = "Host to ping for healthcheck. Defaults to hostname."
   type        = string
-  default     = ""
 }
 
 variable "healthcheck_name" {
   description = "Optional name for the healthcheck."
   type        = string
-  default     = ""
 }
 
 variable "healthcheck_path" {
   description = "URL to use when doing a healthcheck."
   type        = string
-  default     = "/"
 }
 
 variable "healthcheck_method" {
   description = "HTTP method to use when doing a healthcheck."
   type        = string
-  default     = "GET"
-
-  validation {
-    condition     = contains(["CONNECT", "DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT", "TRACE"], var.healthcheck_method)
-    error_message = "Healthcheck method must be a valid HTTP method"
-  }
 }
 
 variable "healthcheck_expected_response" {
   description = "Response to expect from a healthy endpoint."
   type        = number
-  default     = 200
+}
+
+variable "force_tls_hsts" {
+  description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
+  type        = bool
+}
+
+variable "hsts_duration" {
+  description = "Number of seconds for the client to remember only to use HTTPS."
+  type        = number
 }

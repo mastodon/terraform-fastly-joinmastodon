@@ -68,6 +68,17 @@ variable "healthcheck_expected_response" {
   default     = 200
 }
 
+variable "force_tls_hsts" {
+  description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
+  type        = bool
+  default     = true
+}
+
+variable "hsts_duration" {
+  description = "Number of seconds for the client to remember only to use HTTPS."
+  type        = number
+  default     = 300
+}
 
 # API
 
@@ -147,6 +158,17 @@ variable "api_healthcheck_expected_response" {
   default     = 200
 }
 
+variable "api_force_tls_hsts" {
+  description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
+  type        = bool
+  default     = true
+}
+
+variable "api_hsts_duration" {
+  description = "Number of seconds for the client to remember only to use HTTPS."
+  type        = number
+  default     = 31557600
+}
 
 # Proxy
 
@@ -218,4 +240,16 @@ variable "proxy_healthcheck_expected_response" {
   description = "Response to expect from a healthy endpoint."
   type        = number
   default     = 404
+}
+
+variable "proxy_force_tls_hsts" {
+  description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
+  type        = bool
+  default     = true
+}
+
+variable "proxy_hsts_duration" {
+  description = "Number of seconds for the client to remember only to use HTTPS."
+  type        = number
+  default     = 31557600
 }
