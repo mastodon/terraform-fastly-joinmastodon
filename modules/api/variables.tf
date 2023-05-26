@@ -8,6 +8,11 @@ variable "hostname" {
   type        = string
 }
 
+variable "default_ttl" {
+  description = "The default Time-to-live (TTL) for requests."
+  type        = number
+}
+
 variable "backend_name" {
   description = "Optional name for the backend."
   type        = string
@@ -21,6 +26,11 @@ variable "ssl_hostname" {
 variable "backend_address" {
   description = "Address to use for connecting to the backend. Can be a hostname or an IP address."
   type        = string
+}
+
+variable "backend_port" {
+  description = "The port number on which the Backend responds."
+  type        = number
 }
 
 variable "backend_ca_cert" {

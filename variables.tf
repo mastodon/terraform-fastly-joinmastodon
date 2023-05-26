@@ -11,6 +11,12 @@ variable "hostname" {
   type        = string
 }
 
+variable "default_ttl" {
+  description = "The default Time-to-live (TTL) for requests."
+  type        = number
+  default     = 300
+}
+
 variable "backend_name" {
   description = "Optional name for the backend."
   type        = string
@@ -26,6 +32,12 @@ variable "ssl_hostname" {
 variable "backend_address" {
   description = "Address to use for connecting to the backend. Can be a hostname or an IP address."
   type        = string
+}
+
+variable "backend_port" {
+  description = "The port number on which the Backend responds."
+  type        = number
+  default     = 443
 }
 
 variable "shield_region" {
@@ -94,6 +106,12 @@ variable "api_hostname" {
   default     = ""
 }
 
+variable "api_default_ttl" {
+  description = "The default Time-to-live (TTL) for requests."
+  type        = number
+  default     = 300
+}
+
 variable "api_backend_name" {
   description = "Optional name for the backend."
   type        = string
@@ -109,6 +127,12 @@ variable "api_ssl_hostname" {
 variable "api_backend_address" {
   description = "Address to use for connecting to the backend. Can be a hostname or an IP address."
   type        = string
+}
+
+variable "api_backend_port" {
+  description = "The port number on which the Backend responds."
+  type        = number
+  default     = 443
 }
 
 variable "api_backend_ca_cert" {
@@ -184,6 +208,12 @@ variable "proxy_hostname" {
   default     = ""
 }
 
+variable "proxy_default_ttl" {
+  description = "The default Time-to-live (TTL) for requests."
+  type        = number
+  default     = 300
+}
+
 variable "proxy_backend_name" {
   description = "Optional name for the backend."
   type        = string
@@ -199,6 +229,12 @@ variable "proxy_ssl_hostname" {
 variable "proxy_backend_address" {
   description = "Address to use for connecting to the backend. Can be a hostname or an IP address."
   type        = string
+}
+
+variable "proxy_backend_port" {
+  description = "The port number on which the Backend responds."
+  type        = number
+  default     = 443
 }
 
 variable "proxy_shield_region" {

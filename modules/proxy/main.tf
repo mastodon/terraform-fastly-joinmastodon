@@ -10,7 +10,7 @@ locals {
 resource "fastly_service_vcl" "proxy_service" {
   name = local.name
 
-  default_ttl    = 300
+  default_ttl    = var.default_ttl
   http3          = true
   stale_if_error = true
 
@@ -28,7 +28,7 @@ resource "fastly_service_vcl" "proxy_service" {
     healthcheck       = local.healthcheck_name
     keepalive_time    = 0
     override_host     = local.ssl_hostname
-    port              = 443
+    port              = var.backend_port
     max_conn          = 200
     shield            = var.shield_region
     ssl_cert_hostname = local.ssl_hostname
