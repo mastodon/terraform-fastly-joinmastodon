@@ -32,8 +32,7 @@ resource "fastly_service_vcl" "api_service" {
     max_conn          = 200
     shield            = var.shield_region
     ssl_ca_cert       = var.backend_ca_cert
-    ssl_cert_hostname = local.ssl_hostname
-    ssl_check_cert    = true
+    ssl_check_cert    = false
     ssl_sni_hostname  = local.ssl_hostname
     use_ssl           = true
   }
