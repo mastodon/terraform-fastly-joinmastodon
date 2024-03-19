@@ -72,3 +72,19 @@ variable "hsts_duration" {
   description = "Number of seconds for the client to remember only to use HTTPS."
   type        = number
 }
+
+variable "gzip_default_policy" {
+  description = "Whether to enable Fastly's default gzip policy"
+  type        = bool
+}
+
+variable "product_enablement" {
+  description = "Which additional Fastly products to enable for this service."
+  type = object({
+    brotli_compression = optional(bool, false)
+    domain_inspector   = optional(bool, false)
+    image_optimizer    = optional(bool, false)
+    origin_inspector   = optional(bool, false)
+    websockets         = optional(bool, false)
+  })
+}
