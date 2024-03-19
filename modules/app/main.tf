@@ -153,4 +153,13 @@ resource "fastly_service_vcl" "app_service" {
     priority = 100
     type     = "recv"
   }
+
+  # Additional products
+  product_enablement {
+    brotli_compression = var.product_enablement.brotli_compression
+    domain_inspector   = var.product_enablement.domain_inspector
+    image_optimizer    = var.product_enablement.image_optimizer
+    origin_inspector   = var.product_enablement.origin_inspector
+    websockets         = var.product_enablement.websockets
+  }
 }
