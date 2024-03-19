@@ -24,6 +24,7 @@ module "app" {
   healthcheck_expected_response = var.healthcheck_expected_response
   force_tls_hsts                = var.force_tls_hsts
   hsts_duration                 = var.hsts_duration
+  gzip_default_policy           = var.gzip_default_policy
 }
 
 module "api" {

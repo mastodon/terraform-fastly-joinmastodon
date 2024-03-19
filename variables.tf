@@ -89,7 +89,13 @@ variable "force_tls_hsts" {
 variable "hsts_duration" {
   description = "Number of seconds for the client to remember only to use HTTPS."
   type        = number
-  default     = 300
+  default     = 31536000
+}
+
+variable "gzip_default_policy" {
+  description = "Whether to enable Fastly's default gzip policy"
+  type        = bool
+  default     = true
 }
 
 # API

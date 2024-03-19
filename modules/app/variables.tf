@@ -72,3 +72,8 @@ variable "hsts_duration" {
   description = "Number of seconds for the client to remember only to use HTTPS."
   type        = number
 }
+
+variable "gzip_default_policy" {
+  description = "Whether to enable Fastly's default gzip policy"
+  type        = bool
+}
