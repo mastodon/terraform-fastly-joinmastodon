@@ -186,7 +186,7 @@ variable "api_healthcheck_name" {
 variable "api_healthcheck_path" {
   description = "URL to use when doing a healthcheck."
   type        = string
-  default     = "/"
+  default     = "/.well-known/health"
 }
 
 variable "api_healthcheck_method" {
