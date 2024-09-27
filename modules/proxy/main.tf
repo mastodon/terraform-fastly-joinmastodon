@@ -6,7 +6,7 @@ locals {
   healthcheck_host = var.healthcheck_host != "" ? var.healthcheck_host : var.hostname
   healthcheck_name = var.healthcheck_name != "" ? var.healthcheck_name : "${var.hostname} - healthcheck"
 
-  datadog_format         = replace(file("${path.root}/../../logging/datadog.json"), "__service__", var.datadog_service)
+  datadog_format         = replace(file("${path.module}/../../logging/datadog.json"), "__service__", var.datadog_service)
 }
 
 resource "fastly_service_vcl" "proxy_service" {
