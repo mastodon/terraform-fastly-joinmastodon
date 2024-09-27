@@ -5,6 +5,8 @@ locals {
   ssl_hostname     = var.ssl_hostname != "" ? var.ssl_hostname : var.hostname
   healthcheck_host = var.healthcheck_host != "" ? var.healthcheck_host : var.hostname
   healthcheck_name = var.healthcheck_name != "" ? var.healthcheck_name : "${var.hostname} - healthcheck"
+
+  datadog_format         = replace(file("${path.module}/../../logging/datadog.json"), "__service__", var.datadog_service)
 }
 
 resource "fastly_service_vcl" "proxy_service" {
@@ -49,6 +51,18 @@ resource "fastly_service_vcl" "proxy_service" {
     threshold         = 1
     timeout           = 5000
     window            = 2
+  }
+
+  # Datadog logging
+  dynamic "logging_datadog" {
+    for_each = var.datadog ? [1] : []
+    content {
+      name   = "Datadog ${var.datadog_region}"
+      format = local.datadog_format
+      token  = var.datadog_token
+
+      region = var.datadog_region
+    }
   }
 
   # Force TLS/HSTS settings

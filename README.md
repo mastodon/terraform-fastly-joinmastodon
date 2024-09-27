@@ -33,6 +33,8 @@ No resources.
 | <a name="input_api_backend_ca_cert"></a> [api\_backend\_ca\_cert](#input\_api\_backend\_ca\_cert) | CA cert to use when connecting to the backend. | `string` | n/a | yes |
 | <a name="input_api_backend_name"></a> [api\_backend\_name](#input\_api\_backend\_name) | Optional name for the backend. | `string` | `""` | no |
 | <a name="input_api_backend_port"></a> [api\_backend\_port](#input\_api\_backend\_port) | The port number on which the Backend responds. | `number` | `443` | no |
+| <a name="input_api_datadog"></a> [api\_datadog](#input\_api\_datadog) | Whether to send logging info to Datadog | `bool` | `false` | no |
+| <a name="input_api_datadog_service"></a> [api\_datadog\_service](#input\_api\_datadog\_service) | Datadog service name to use for logs | `string` | `"fastly"` | no |
 | <a name="input_api_default_ttl"></a> [api\_default\_ttl](#input\_api\_default\_ttl) | The default Time-to-live (TTL) for requests. | `number` | `300` | no |
 | <a name="input_api_force_tls_hsts"></a> [api\_force\_tls\_hsts](#input\_api\_force\_tls\_hsts) | Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure. | `bool` | `true` | no |
 | <a name="input_api_healthcheck_expected_response"></a> [api\_healthcheck\_expected\_response](#input\_api\_healthcheck\_expected\_response) | Response to expect from a healthy endpoint. | `number` | `200` | no |
@@ -48,6 +50,10 @@ No resources.
 | <a name="input_backend_address"></a> [backend\_address](#input\_backend\_address) | Address to use for connecting to the backend. Can be a hostname or an IP address. | `string` | n/a | yes |
 | <a name="input_backend_name"></a> [backend\_name](#input\_backend\_name) | Optional name for the backend. | `string` | `""` | no |
 | <a name="input_backend_port"></a> [backend\_port](#input\_backend\_port) | The port number on which the Backend responds. | `number` | `443` | no |
+| <a name="input_datadog"></a> [datadog](#input\_datadog) | Whether to send logging info to Datadog | `bool` | `false` | no |
+| <a name="input_datadog_region"></a> [datadog\_region](#input\_datadog\_region) | The region that log data will be sent to. | `string` | `"EU"` | no |
+| <a name="input_datadog_service"></a> [datadog\_service](#input\_datadog\_service) | Datadog service name to use for logs | `string` | `"fastly"` | no |
+| <a name="input_datadog_token"></a> [datadog\_token](#input\_datadog\_token) | API key from Datadog. | `string` | `""` | no |
 | <a name="input_default_ttl"></a> [default\_ttl](#input\_default\_ttl) | The default Time-to-live (TTL) for requests. | `number` | `300` | no |
 | <a name="input_force_tls_hsts"></a> [force\_tls\_hsts](#input\_force\_tls\_hsts) | Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure. | `bool` | `true` | no |
 | <a name="input_gzip_default_policy"></a> [gzip\_default\_policy](#input\_gzip\_default\_policy) | Whether to enable Fastly's default gzip policy | `bool` | `true` | no |
@@ -63,6 +69,8 @@ No resources.
 | <a name="input_proxy_backend_address"></a> [proxy\_backend\_address](#input\_proxy\_backend\_address) | Address to use for connecting to the backend. Can be a hostname or an IP address. | `string` | n/a | yes |
 | <a name="input_proxy_backend_name"></a> [proxy\_backend\_name](#input\_proxy\_backend\_name) | Optional name for the backend. | `string` | `""` | no |
 | <a name="input_proxy_backend_port"></a> [proxy\_backend\_port](#input\_proxy\_backend\_port) | The port number on which the Backend responds. | `number` | `443` | no |
+| <a name="input_proxy_datadog"></a> [proxy\_datadog](#input\_proxy\_datadog) | Whether to send logging info to Datadog | `bool` | `false` | no |
+| <a name="input_proxy_datadog_service"></a> [proxy\_datadog\_service](#input\_proxy\_datadog\_service) | Datadog service name to use for logs | `string` | `"fastly"` | no |
 | <a name="input_proxy_default_ttl"></a> [proxy\_default\_ttl](#input\_proxy\_default\_ttl) | The default Time-to-live (TTL) for requests. | `number` | `300` | no |
 | <a name="input_proxy_force_tls_hsts"></a> [proxy\_force\_tls\_hsts](#input\_proxy\_force\_tls\_hsts) | Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure. | `bool` | `true` | no |
 | <a name="input_proxy_healthcheck_expected_response"></a> [proxy\_healthcheck\_expected\_response](#input\_proxy\_healthcheck\_expected\_response) | Response to expect from a healthy endpoint. | `number` | `404` | no |
