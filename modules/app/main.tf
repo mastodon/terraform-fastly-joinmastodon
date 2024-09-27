@@ -9,6 +9,8 @@ locals {
 
   vcl_apex_error            = templatefile("${path.module}/vcl/apex_error.vcl", { hostname = var.hostname })
   vcl_apex_redirect         = templatefile("${path.module}/vcl/apex_redirect.vcl", { hostname = "${var.hostname}" })
+
+  datadog_format         = replace(file("${path.root}/logging/datadog.json"), "__service__", var.datadog_service)
 }
 
 resource "fastly_service_vcl" "app_service" {
@@ -66,6 +68,18 @@ resource "fastly_service_vcl" "app_service" {
     threshold         = 1
     timeout           = 5000
     window            = 2
+  }
+
+  # Datadog logging
+  dynamic "logging_datadog" {
+    for_each = var.datadog ? [1] : []
+    content {
+      name   = "Datadog ${var.datadog_region}"
+      format = local.datadog_format
+      token  = var.datadog_token
+
+      region = var.datadog_region
+    }
   }
 
   # Force TLS/HSTS settings

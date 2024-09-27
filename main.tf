@@ -26,6 +26,10 @@ module "app" {
   hsts_duration                 = var.hsts_duration
   gzip_default_policy           = var.gzip_default_policy
   product_enablement            = var.product_enablement
+  datadog                       = var.datadog
+  datadog_region                = var.datadog_region
+  datadog_service               = var.datadog_service
+  datadog_token                 = var.datadog_token
 }
 
 module "api" {
@@ -47,6 +51,10 @@ module "api" {
   healthcheck_expected_response = var.api_healthcheck_expected_response
   force_tls_hsts                = var.api_force_tls_hsts
   hsts_duration                 = var.api_hsts_duration
+  datadog                       = var.api_datadog
+  datadog_region                = var.datadog_region
+  datadog_service               = var.api_datadog_service
+  datadog_token                 = var.datadog_token
 }
 
 module "proxy" {
@@ -67,4 +75,8 @@ module "proxy" {
   healthcheck_expected_response = var.proxy_healthcheck_expected_response
   force_tls_hsts                = var.proxy_force_tls_hsts
   hsts_duration                 = var.proxy_hsts_duration
+  datadog                       = var.proxy_datadog
+  datadog_region                = var.datadog_region
+  datadog_service               = var.proxy_datadog_service
+  datadog_token                 = var.datadog_token
 }

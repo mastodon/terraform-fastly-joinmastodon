@@ -72,3 +72,33 @@ variable "hsts_duration" {
   description = "Number of seconds for the client to remember only to use HTTPS."
   type        = number
 }
+
+variable "datadog" {
+  description = "Whether to send logging info to Datadog"
+  type        = bool
+  default     = false
+}
+
+variable "datadog_token" {
+  description = "API key from Datadog."
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "datadog_service" {
+  description = "Datadog service name to use for logs"
+  type        = string
+  default     = "fastly"
+}
+
+variable "datadog_region" {
+  description = "The region that log data will be sent to."
+  type        = string
+  default     = "EU"
+
+  validation {
+    condition     = contains(["US", "EU"], var.datadog_region)
+    error_message = "Datadog region must be either US or EU."
+  }
+}
