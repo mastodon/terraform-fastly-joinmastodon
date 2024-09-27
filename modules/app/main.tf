@@ -10,7 +10,7 @@ locals {
   vcl_apex_error            = templatefile("${path.module}/vcl/apex_error.vcl", { hostname = var.hostname })
   vcl_apex_redirect         = templatefile("${path.module}/vcl/apex_redirect.vcl", { hostname = "${var.hostname}" })
 
-  datadog_format         = replace(file("${path.root}/logging/datadog.json"), "__service__", var.datadog_service)
+  datadog_format         = replace(file("${path.module}/../../logging/datadog.json"), "__service__", var.datadog_service)
 }
 
 resource "fastly_service_vcl" "app_service" {
