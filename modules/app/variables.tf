@@ -89,6 +89,11 @@ variable "product_enablement" {
   })
 }
 
+variable "purge_auth" {
+  description = "Whether to require API tokens when subimtting HTTP PURGE requests"
+  type        = bool
+}
+
 variable "datadog" {
   description = "Whether to send logging info to Datadog"
   type        = bool

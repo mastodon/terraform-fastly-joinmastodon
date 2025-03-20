@@ -116,6 +116,12 @@ variable "product_enablement" {
   }
 }
 
+variable "purge_auth" {
+  description = "Whether to require API tokens when subimtting HTTP PURGE requests"
+  type        = bool
+  default     = true
+}
+
 variable "datadog" {
   description = "Whether to send logging info to Datadog"
   type        = bool
@@ -248,6 +254,12 @@ variable "api_hsts_duration" {
   default     = 31557600
 }
 
+variable "api_purge_auth" {
+  description = "Whether to require API tokens when subimtting HTTP PURGE requests"
+  type        = bool
+  default     = true
+}
+
 variable "api_datadog" {
   description = "Whether to send logging info to Datadog"
   type        = bool
@@ -355,6 +367,12 @@ variable "proxy_hsts_duration" {
   description = "Number of seconds for the client to remember only to use HTTPS."
   type        = number
   default     = 31557600
+}
+
+variable "proxy_purge_auth" {
+  description = "Whether to require API tokens when subimtting HTTP PURGE requests"
+  type        = bool
+  default     = true
 }
 
 variable "proxy_datadog" {

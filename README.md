@@ -41,10 +41,11 @@ No resources.
 | <a name="input_api_healthcheck_host"></a> [api\_healthcheck\_host](#input\_api\_healthcheck\_host) | Host to ping for healthcheck. Defaults to hostname. | `string` | `""` | no |
 | <a name="input_api_healthcheck_method"></a> [api\_healthcheck\_method](#input\_api\_healthcheck\_method) | HTTP method to use when doing a healthcheck. | `string` | `"GET"` | no |
 | <a name="input_api_healthcheck_name"></a> [api\_healthcheck\_name](#input\_api\_healthcheck\_name) | Optional name for the healthcheck. | `string` | `""` | no |
-| <a name="input_api_healthcheck_path"></a> [api\_healthcheck\_path](#input\_api\_healthcheck\_path) | URL to use when doing a healthcheck. | `string` | `"/"` | no |
+| <a name="input_api_healthcheck_path"></a> [api\_healthcheck\_path](#input\_api\_healthcheck\_path) | URL to use when doing a healthcheck. | `string` | `"/.well-known/health"` | no |
 | <a name="input_api_hostname"></a> [api\_hostname](#input\_api\_hostname) | Hostname the service points to. | `string` | `""` | no |
 | <a name="input_api_hsts_duration"></a> [api\_hsts\_duration](#input\_api\_hsts\_duration) | Number of seconds for the client to remember only to use HTTPS. | `number` | `31557600` | no |
 | <a name="input_api_name"></a> [api\_name](#input\_api\_name) | Name of the fastly service (defaults to hostname). | `string` | `""` | no |
+| <a name="input_api_purge_auth"></a> [api\_purge\_auth](#input\_api\_purge\_auth) | Whether to require API tokens when subimtting HTTP PURGE requests | `bool` | `true` | no |
 | <a name="input_api_shield_region"></a> [api\_shield\_region](#input\_api\_shield\_region) | Which Fastly shield region to use (if different than main shield region). Should correspond with the shield code. | `string` | `""` | no |
 | <a name="input_api_ssl_hostname"></a> [api\_ssl\_hostname](#input\_api\_ssl\_hostname) | Hostname to use for SSL verification (if different from 'hostname'). | `string` | `""` | no |
 | <a name="input_backend_address"></a> [backend\_address](#input\_backend\_address) | Address to use for connecting to the backend. Can be a hostname or an IP address. | `string` | n/a | yes |
@@ -81,8 +82,10 @@ No resources.
 | <a name="input_proxy_hostname"></a> [proxy\_hostname](#input\_proxy\_hostname) | Hostname the service points to. | `string` | `""` | no |
 | <a name="input_proxy_hsts_duration"></a> [proxy\_hsts\_duration](#input\_proxy\_hsts\_duration) | Number of seconds for the client to remember only to use HTTPS. | `number` | `31557600` | no |
 | <a name="input_proxy_name"></a> [proxy\_name](#input\_proxy\_name) | Name of the fastly service (defaults to hostname). | `string` | `""` | no |
+| <a name="input_proxy_purge_auth"></a> [proxy\_purge\_auth](#input\_proxy\_purge\_auth) | Whether to require API tokens when subimtting HTTP PURGE requests | `bool` | `true` | no |
 | <a name="input_proxy_shield_region"></a> [proxy\_shield\_region](#input\_proxy\_shield\_region) | Which Fastly shield region to use (if different than main shield region). Should correspond with the shield code. | `string` | `""` | no |
 | <a name="input_proxy_ssl_hostname"></a> [proxy\_ssl\_hostname](#input\_proxy\_ssl\_hostname) | Hostname to use for SSL verification (if different from 'hostname'). | `string` | `""` | no |
+| <a name="input_purge_auth"></a> [purge\_auth](#input\_purge\_auth) | Whether to require API tokens when subimtting HTTP PURGE requests | `bool` | `true` | no |
 | <a name="input_shield_region"></a> [shield\_region](#input\_shield\_region) | Which Fastly shield region to use. Should correspond with the shield code. | `string` | n/a | yes |
 | <a name="input_ssl_hostname"></a> [ssl\_hostname](#input\_ssl\_hostname) | Hostname to use for SSL verification (if different from 'hostname'). | `string` | `""` | no |
 
