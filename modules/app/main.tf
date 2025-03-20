@@ -11,6 +11,8 @@ locals {
   vcl_apex_redirect         = templatefile("${path.module}/vcl/apex_redirect.vcl", { hostname = "${var.hostname}" })
 
   datadog_format         = replace(file("${path.module}/../../logging/datadog.json"), "__service__", var.datadog_service)
+
+  vcl_purge_auth = file("${path.module}/../../vcl/purge_auth.vcl")
 }
 
 resource "fastly_service_vcl" "app_service" {
@@ -79,6 +81,17 @@ resource "fastly_service_vcl" "app_service" {
       token  = var.datadog_token
 
       region = var.datadog_region
+    }
+  }
+
+  # Purge Authentication header
+  dynamic "snippet" {
+    for_each = var.purge_auth ? [1] : []
+    content {
+      name     = "Purge Authentication Header"
+      content  = local.vcl_purge_auth
+      type     = "recv"
+      priority = 100
     }
   }
 
