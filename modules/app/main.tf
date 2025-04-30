@@ -102,7 +102,7 @@ resource "fastly_service_vcl" "app_service" {
     content {
       name     = "Vary Accept-Language"
       content  = local.vcl_vary_accept_language
-      type     = "recv"
+      type     = "fetch"
       priority = 100
     }
   }
