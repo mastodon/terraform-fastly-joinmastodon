@@ -88,6 +88,7 @@ No resources.
 | <a name="input_purge_auth"></a> [purge\_auth](#input\_purge\_auth) | Whether to require API tokens when subimtting HTTP PURGE requests | `bool` | `true` | no |
 | <a name="input_shield_region"></a> [shield\_region](#input\_shield\_region) | Which Fastly shield region to use. Should correspond with the shield code. | `string` | n/a | yes |
 | <a name="input_ssl_hostname"></a> [ssl\_hostname](#input\_ssl\_hostname) | Hostname to use for SSL verification (if different from 'hostname'). | `string` | `""` | no |
+| <a name="input_vary_accept_language"></a> [vary\_accept\_language](#input\_vary\_accept\_language) | Whether to set 'Vary: Accept-Language' as a header with language-specific pages | `bool` | `true` | no |
 
 ## Outputs
 

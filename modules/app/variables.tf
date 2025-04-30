@@ -123,3 +123,9 @@ variable "datadog_region" {
     error_message = "Datadog region must be either US or EU."
   }
 }
+
+variable "vary_accept_language" {
+  description = "Whether to set 'Vary: Accept-Language' as a header with language-specific pages"
+  type        = bool
+  default     = true
+}
