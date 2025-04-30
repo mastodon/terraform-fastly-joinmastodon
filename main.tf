@@ -31,6 +31,7 @@ module "app" {
   datadog_region                = var.datadog_region
   datadog_service               = var.datadog_service
   datadog_token                 = var.datadog_token
+  vary_accept_language          = var.vary_accept_language
 }
 
 module "api" {

@@ -12,7 +12,8 @@ locals {
 
   datadog_format         = replace(file("${path.module}/../../logging/datadog.json"), "__service__", var.datadog_service)
 
-  vcl_purge_auth = file("${path.module}/../../vcl/purge_auth.vcl")
+  vcl_purge_auth            = file("${path.module}/../../vcl/purge_auth.vcl")
+  vcl_vary_accept_language  = file("${path.module}/../../vcl/language_vary.vcl")
 }
 
 resource "fastly_service_vcl" "app_service" {
@@ -90,6 +91,17 @@ resource "fastly_service_vcl" "app_service" {
     content {
       name     = "Purge Authentication Header"
       content  = local.vcl_purge_auth
+      type     = "recv"
+      priority = 100
+    }
+  }
+
+  # Vary: Accept-Language header additions
+  dynamic "snippet" {
+    for_each = var.vary_accept_language ? [1] : []
+    content {
+      name     = "Vary Accept-Language"
+      content  = local.vcl_vary_accept_language
       type     = "recv"
       priority = 100
     }

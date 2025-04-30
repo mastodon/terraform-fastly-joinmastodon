@@ -152,6 +152,12 @@ variable "datadog_region" {
   }
 }
 
+variable "vary_accept_language" {
+  description = "Whether to set 'Vary: Accept-Language' as a header with language-specific pages"
+  type        = bool
+  default     = true
+}
+
 # API
 
 variable "api_name" {
