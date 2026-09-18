@@ -7,7 +7,7 @@ Terraform module for creating all necessary services in Fastly for hosting the [
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_fastly"></a> [fastly](#requirement\_fastly) | >= 5.7.1 |
+| <a name="requirement_fastly"></a> [fastly](#requirement\_fastly) | >= 9.7.0 |
 
 ## Providers
 
@@ -37,6 +37,7 @@ No resources.
 | <a name="input_api_datadog_service"></a> [api\_datadog\_service](#input\_api\_datadog\_service) | Datadog service name to use for logs | `string` | `"fastly"` | no |
 | <a name="input_api_default_ttl"></a> [api\_default\_ttl](#input\_api\_default\_ttl) | The default Time-to-live (TTL) for requests. | `number` | `300` | no |
 | <a name="input_api_force_tls_hsts"></a> [api\_force\_tls\_hsts](#input\_api\_force\_tls\_hsts) | Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure. | `bool` | `true` | no |
+| <a name="input_api_header_geo_country"></a> [api\_header\_geo\_country](#input\_api\_header\_geo\_country) | Whether to add X-Geo-Country headers to requests | `bool` | `true` | no |
 | <a name="input_api_healthcheck_expected_response"></a> [api\_healthcheck\_expected\_response](#input\_api\_healthcheck\_expected\_response) | Response to expect from a healthy endpoint. | `number` | `200` | no |
 | <a name="input_api_healthcheck_host"></a> [api\_healthcheck\_host](#input\_api\_healthcheck\_host) | Host to ping for healthcheck. Defaults to hostname. | `string` | `""` | no |
 | <a name="input_api_healthcheck_method"></a> [api\_healthcheck\_method](#input\_api\_healthcheck\_method) | HTTP method to use when doing a healthcheck. | `string` | `"GET"` | no |

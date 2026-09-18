@@ -69,6 +69,11 @@ variable "healthcheck_expected_response" {
   type        = number
 }
 
+variable "header_geo_country" {
+  description = "Whether to add X-Geo-Country headers to requests"
+  type        = bool
+}
+
 variable "force_tls_hsts" {
   description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
   type        = bool

@@ -51,6 +51,7 @@ module "api" {
   healthcheck_path              = var.api_healthcheck_path
   healthcheck_method            = var.api_healthcheck_method
   healthcheck_expected_response = var.api_healthcheck_expected_response
+  header_geo_country            = var.api_header_geo_country
   force_tls_hsts                = var.api_force_tls_hsts
   hsts_duration                 = var.api_hsts_duration
   purge_auth                    = var.api_purge_auth
