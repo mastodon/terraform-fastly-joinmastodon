@@ -79,6 +79,22 @@ resource "fastly_service_vcl" "api_service" {
     }
   }
 
+  # Add X-Geo-Country headers to requests
+  dynamic "header" {
+    for_each = var.header_geo_country ? [1] : []
+
+    content {
+      name          = "GeoIP country Header"
+      action        = "set"
+      destination   = "http.X-Geo-Country"
+      type          = "request"
+
+      ignore_if_set = false
+      priority      = 10
+      source        = "client.geo.country_code3"
+    }
+  }
+
   # Force TLS/HSTS settings
   # Creates similar objects to what the GUI switch creates.
 

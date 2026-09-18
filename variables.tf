@@ -248,6 +248,12 @@ variable "api_healthcheck_expected_response" {
   default     = 200
 }
 
+variable "api_header_geo_country" {
+  description = "Whether to add X-Geo-Country headers to requests"
+  type        = bool
+  default     = true
+}
+
 variable "api_force_tls_hsts" {
   description = "Force TLS and HTTP Strict Transport Security (HSTS) to ensure that every request is secure."
   type        = bool
